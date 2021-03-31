@@ -1,3 +1,21 @@
 from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
 
-# Create your views here.
+from products.models import Product, Category
+from products.permissions import IsProductOwnerOrReadOnly
+from products.serializers import ProductSerializer, CategorySerializer
+
+
+class CategoryView(ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    lookup_field = 'pk'
+    permission_classes = (IsProductOwnerOrReadOnly,)
+
+
+class ProductView(ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    lookup_field = 'pk'
+    permission_classes = (IsProductOwnerOrReadOnly,)
+
