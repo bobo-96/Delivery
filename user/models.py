@@ -6,7 +6,7 @@ from django.db import models
 
 class User(AbstractUser):
     avatar = models.FileField('Аватарка', upload_to='user_avatar/')
-
+    is_courier = models.BooleanField(default=False)
 
 class Customer(models.Model):
     user = models.OneToOneField('user.User', models.CASCADE)
@@ -16,6 +16,7 @@ class Customer(models.Model):
 
 class Courier(models.Model):
     user = models.OneToOneField('user.User', models.CASCADE)
+
 
 
 
