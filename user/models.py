@@ -8,6 +8,7 @@ class User(AbstractUser):
     avatar = models.FileField('Аватарка', upload_to='user_avatar/')
     is_courier = models.BooleanField(default=False)
 
+
 class Customer(models.Model):
     user = models.OneToOneField('user.User', models.CASCADE)
     balance = models.IntegerField(verbose_name='Баланс')
