@@ -6,7 +6,7 @@ from user.views import UserView
 
 urlpatterns = [
     path('signin/', LoginView.as_view(), name='rest_login'),
-    path('signup/', RegisterView.as_view(), name='rest_register'),
-    path('user/<int:pk>', UserView.as_view({'get': 'retrieve', 'put': 'update'})),
+    path('signup/', UserView.as_view(), name='rest_register'),
+    # path('user/<int:pk>', UserView.as_view({'get': 'retrieve', 'put': 'update'})),
 
 ]

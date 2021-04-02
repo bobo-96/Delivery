@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
-    'rest_auth.registration'
+    'allauth.socialaccount',
+    'rest_auth.registration',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -139,6 +141,8 @@ AUTH_USER_MODEL = 'user.User'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
+
+
     ]
 }
 

@@ -22,3 +22,5 @@ class StatusView(ModelViewSet):
     serializer_class = StatusSerializer
     lookup_field = 'pk'
     permission_classes = (IsStatusOwnerOrReadOnly,)
+
+

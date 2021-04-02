@@ -5,14 +5,14 @@ from django.db import models
 
 
 class User(AbstractUser):
-    avatar = models.FileField('Аватарка', upload_to='user_avatar/')
+    avatar = models.FileField('Аватарка', upload_to='user_avatar/', null=True, blank=True)
     is_courier = models.BooleanField(default=False)
+    date = models.DateTimeField(verbose_name='Дата Рождения', null=True, blank=True)
 
 
 class Customer(models.Model):
     user = models.OneToOneField('user.User', models.CASCADE)
-    balance = models.IntegerField(verbose_name='Баланс')
-    date = models.DateTimeField(verbose_name='Дата Рождения')
+    balance = models.IntegerField(verbose_name='Баланс', null=True)
 
 
 class Courier(models.Model):
@@ -22,5 +22,5 @@ class Courier(models.Model):
 
 
 
-
+# Customer.objects.create(user=user)
 
